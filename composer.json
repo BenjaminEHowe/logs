@@ -1,0 +1,12 @@
+{
+    "name": "benjaminehowe/logs",
+    "type": "project",
+    "license": "AGPL",
+    "authors": [
+        {
+            "name": "Benjamin Howe",
+            "email": "ben@beh.uk"
+        }
+    ],
+    "require": {}
+}
