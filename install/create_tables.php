@@ -1,10 +1,10 @@
 <?php
 
-require "../config.php";
+require_once "../config.php";
 
 $connection = new mysqli($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME);
 if ($connection->connect_error) {
-    die("Connection failed: {$connection->connect_error}");
+	die("Connection failed: {$connection->connect_error}");
 }
 
 function tryToCreateTable($name, $sql) {
@@ -22,7 +22,6 @@ $sql = "
 	CREATE TABLE `{$TABLE_PREFIX}_secrets` (
 		`id` char(26) NOT NULL,
 		`value` text NOT NULL,
-		`salt` text NOT NULL,
 		`isActive` tinyint(1) NOT NULL,
 		PRIMARY KEY (`id`)
 	) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4

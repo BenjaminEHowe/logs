@@ -8,5 +8,7 @@
             "email": "ben@beh.uk"
         }
     ],
-    "require": {}
+    "require": {
+        "robinvdvleuten/ulid": "^4.0"
+    }
 }
