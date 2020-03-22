@@ -1,22 +1,16 @@
 <?php
 
 namespace logs\install;
-
-require_once '../vendor/autoload.php';
+require_once "../vendor/autoload.php";
 
 use Mysqli;
 use Ulid\Ulid;
 
-require_once "../config.php";
-
-$connection = new mysqli($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME);
-if ($connection->connect_error) {
-	die("Connection failed: {$connection->connect_error}");
-}
+require_once "../utils/db.php";
 
 // die if users already exist
 if (mysqli_num_rows($connection->query("SELECT * FROM `${TABLE_PREFIX}_users`")) !== 0) {
-	die("Users already exist");
+	die("Users table is not empty");
 }
 
 echo "<br />";
