@@ -64,12 +64,15 @@ $sql .= "
 ";
 
 // execute SQL
-if ($connection->multi_query($sql) === TRUE) {
-	echo "Tables created or updated successfully.";
+if ($connection->multi_query($sql)) {
+	do {
+		if ($result = $connection->store_result()) {
+			$result->free();
+		}
+	} while ($connection->next_result());
+	echo "all ok.";
 } else {
-	die("Error creating / updating tables: {$connection->error}");
+	die("error: {$connection->error}");
 }
-
-$connection->close();
 
 ?>
